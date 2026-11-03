@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="PomodoroTimer.Pages.TimerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="24,16,24,24" RowSpacing="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Timer" />
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Spacing="16">
+            <TextBlock
+                HorizontalAlignment="Center"
+                AutomationProperties.AutomationId="PhaseText"
+                Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                Style="{StaticResource SubtitleTextBlockStyle}"
+                Text="{x:Bind ViewModel.PhaseText, Mode=OneWay}" />
+
+            <TextBlock
+                HorizontalAlignment="Center"
+                AutomationProperties.AutomationId="RemainingTimeText"
+                FontSize="96"
+                FontWeight="SemiBold"
+                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                Text="{x:Bind ViewModel.RemainingText, Mode=OneWay}" />
+
+            <TextBlock
+                HorizontalAlignment="Center"
+                AutomationProperties.AutomationId="StatusText"
+                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                Style="{StaticResource BodyTextBlockStyle}"
+                Text="{x:Bind ViewModel.StatusText, Mode=OneWay}" />
+
+            <StackPanel
+                Margin="0,8,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal"
+                Spacing="8">
+                <Button
+                    MinWidth="96"
+                    AutomationProperties.AutomationId="StartButton"
+                    Command="{x:Bind ViewModel.StartCommand}"
+                    Content="Start"
+                    Style="{StaticResource AccentButtonStyle}" />
+                <Button
+                    MinWidth="96"
+                    AutomationProperties.AutomationId="PauseButton"
+                    Command="{x:Bind ViewModel.PauseCommand}"
+                    Content="Pause" />
+                <Button
+                    MinWidth="96"
+                    AutomationProperties.AutomationId="ResetButton"
+                    Command="{x:Bind ViewModel.ResetCommand}"
+                    Content="Reset" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

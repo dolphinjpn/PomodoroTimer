@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="PomodoroTimer.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="SettingsSectionStyle" TargetType="Border">
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+            <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="{StaticResource OverlayCornerRadius}" />
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
+        <StackPanel
+            MaxWidth="720"
+            Padding="24,16,24,24"
+            HorizontalAlignment="Left"
+            Spacing="16">
+            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Settings" />
+
+            <Border Style="{StaticResource SettingsSectionStyle}">
+                <StackPanel Spacing="12">
+                    <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="Durations" />
+                    <NumberBox
+                        AutomationProperties.AutomationId="WorkMinutesNumberBox"
+                        Header="Work (minutes)"
+                        Maximum="{x:Bind ViewModel.MaxWorkMinutes, Mode=OneTime}"
+                        Minimum="{x:Bind ViewModel.MinMinutes, Mode=OneTime}"
+                        SmallChange="1"
+                        SpinButtonPlacementMode="Inline"
+                        Width="240"
+                        HorizontalAlignment="Left"
+                        Value="{x:Bind ViewModel.WorkMinutes, Mode=TwoWay}" />
+                    <NumberBox
+                        AutomationProperties.AutomationId="BreakMinutesNumberBox"
+                        Header="Break (minutes)"
+                        Maximum="{x:Bind ViewModel.MaxBreakMinutes, Mode=OneTime}"
+                        Minimum="{x:Bind ViewModel.MinMinutes, Mode=OneTime}"
+                        SmallChange="1"
+                        SpinButtonPlacementMode="Inline"
+                        Width="240"
+                        HorizontalAlignment="Left"
+                        Value="{x:Bind ViewModel.BreakMinutes, Mode=TwoWay}" />
+                    <TextBlock
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Style="{StaticResource CaptionTextBlockStyle}"
+                        Text="Changes apply from the next Work or Break phase."
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsSectionStyle}">
+                <RadioButtons
+                    AutomationProperties.AutomationId="ThemeRadioButtons"
+                    Header="Theme"
+                    SelectedIndex="{x:Bind ViewModel.ThemeIndex, Mode=TwoWay}">
+                    <RadioButton AutomationProperties.AutomationId="ThemeLightRadioButton" Content="Light" />
+                    <RadioButton AutomationProperties.AutomationId="ThemeDarkRadioButton" Content="Dark" />
+                </RadioButtons>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
