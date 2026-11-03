@@ -11,14 +11,14 @@
 
   <Identity
     Name="EE9703F4-AA11-4F56-8BF1-482DCEB2D5C7"
-    Publisher="CN=AppPublisher"
+    Publisher="CN=dolphinjpn"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="EE9703F4-AA11-4F56-8BF1-482DCEB2D5C7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>PomodoroTimer</DisplayName>
-    <PublisherDisplayName>AppPublisher</PublisherDisplayName>
+    <PublisherDisplayName>dolphinjpn</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
     <uap10:PackageIntegrity>
       <uap10:Content Enforcement="on"/>
