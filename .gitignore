@@ -1,6 +1,9 @@
 # .NET / WinUI build output
-bin/
-obj/
+[Bb]in/
+[Oo]bj/
+AppX/
+*.binlog
+[Tt]est[Rr]esult*/
 [Dd]ebug/
 [Rr]elease/
 *.user
